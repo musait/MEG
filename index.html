@@ -26,7 +26,7 @@
                 padding: 0 20px;
             }
 
-            /* HEADER & NAV RESPONSIVE - NETTOYÉ */
+            /* HEADER & NAV RESPONSIVE - NETTOYÉ & CORRIGÉ */
             header {
                 background-color: #ffffff;
                 border-bottom: 2px solid #f1f5f9;
@@ -42,32 +42,35 @@
                 position: relative;
             }
 
-            .logo-img {
-                width: 48px;
-                height: 48px;
-                object-fit: contain; /* Évite que l'image soit écrasée ou déformée */
-                vertical-align: middle;
-            }
-
-            /* Ajustement automatique pour Mobile (sous 768px) */
-            @media (max-width: 768px) {
-                .logo-img {
-                    width: 38px;
-                    height: 38px;
-                }
-            }
+            /* STYLE DU LOGO (PC & TABLETTE) */
             .logo {
-                font-weight: 800;
-                font-size: 22px;
+                display: flex;
+                align-items: center; /* Aligne le logo carré et le texte au centre verticalement */
+                gap: 12px;
                 color: #1a365d;
                 z-index: 1001;
             }
-            .logo span {
+            .logo-img {
+                width: 46px;
+                height: 46px;
+                object-fit: contain; /* Évite que l'image soit écrasée ou déformée */
+                border-radius: 4px;
+            }
+            .logo-text {
+                display: flex;
+                flex-direction: column;
+                line-height: 1.1;
+            }
+            .logo-title {
+                font-weight: 800;
+                font-size: 22px;
+            }
+            .logo span.logo-subtitle {
                 font-size: 13px;
                 color: #64748b;
                 font-weight: 400;
                 display: block;
-                margin-top: -4px;
+                margin-top: 2px;
             }
 
             /* Menu Burger Icon */
@@ -556,8 +559,14 @@
             }
 
             @media (max-width: 768px) {
+                /* FORCE LE CENTRAGE DU HEADER MOBILE */
+                .header-wrapper {
+                    justify-content: center;
+                }
                 .burger-menu {
                     display: flex;
+                    position: absolute;
+                    left: 0;
                 }
                 nav {
                     display: none;
@@ -576,6 +585,28 @@
                 }
                 nav.open {
                     display: flex;
+                }
+
+                /* ALIGNEMENT VERTICAL ET CENTRÉ DU LOGO MOBILE */
+                .logo {
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    gap: 6px;
+                    margin: 0 auto;
+                }
+                .logo-img {
+                    width: 42px;
+                    height: 42px;
+                }
+                .logo-title {
+                    display: none; /* Cache MEG sur mobile */
+                }
+                .logo span.logo-subtitle {
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: #1a365d; /* Devient bleu et principal */
+                    margin-top: 0;
                 }
 
                 /* Affichage propre du bouton mobile dans le panneau déroulant */
@@ -642,10 +673,13 @@
     <body>
         <header>
             <div class="container header-wrapper">
-                <img src="logo.jpg" alt="Logo MEG" class="logo-img" />
                 <div class="logo">
-                    MEG
-                    <span>Madariss Oum El Ghait</span>
+                    <img src="logo.png" alt="Logo MEG" class="logo-img" />
+
+                    <div class="logo-text">
+                        <span class="logo-title">MEG</span>
+                        <span class="logo-subtitle">Madariss Oum El Ghait</span>
+                    </div>
                 </div>
 
                 <button class="burger-menu" id="burgerToggle" aria-label="Menu">
