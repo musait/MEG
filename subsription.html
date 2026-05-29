@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Admissions & Inscriptions | Madariss Oum El Ghait (MEG)</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            }
+            body {
+                background-color: #f8fafc;
+                color: #334155;
+                line-height: 1.6;
+            }
+            a {
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            /* HEADER & NAV RESPONSIVE */
+            header {
+                background-color: #ffffff;
+                border-bottom: 2px solid #f1f5f9;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+            .header-wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 0;
+                position: relative;
+            }
+            .logo {
+                font-weight: 800;
+                font-size: 22px;
+                color: #1a365d;
+                z-index: 1001;
+            }
+            .logo span {
+                font-size: 13px;
+                color: #64748b;
+                font-weight: 400;
+                display: block;
+                margin-top: -4px;
+            }
+
+            .burger-menu {
+                display: none;
+                flex-direction: column;
+                gap: 5px;
+                cursor: pointer;
+                border: none;
+                background: none;
+                padding: 5px;
+                z-index: 1001;
+            }
+            .burger-menu div {
+                width: 25px;
+                height: 3px;
+                background-color: #1a365d;
+                transition: all 0.3s ease;
+            }
+
+            nav {
+                display: flex;
+                gap: 25px;
+                align-items: center;
+            }
+            nav a {
+                color: #475569;
+                font-weight: 600;
+                font-size: 15px;
+                padding: 5px 0;
+            }
+            nav a:hover,
+            nav a.active {
+                color: #a62639;
+            }
+
+            .btn-mobile-only {
+                display: none;
+            }
+
+            .header-actions {
+                display: flex;
+                align-items: center;
+            }
+            .btn-header {
+                background-color: #a62639;
+                color: #ffffff;
+                padding: 10px 20px;
+                border-radius: 6px;
+                font-weight: 700;
+                font-size: 14px;
+                white-space: nowrap;
+            }
+            .btn-header:hover {
+                background-color: #8b1e3f;
+                transform: translateY(-1px);
+            }
+
+            /* PAGE BANNER */
+            .page-banner {
+                background-color: #1a365d;
+                color: #ffffff;
+                padding: 60px 0;
+                text-align: center;
+            }
+            .page-banner h1 {
+                font-size: 34px;
+                font-weight: 800;
+                margin-bottom: 15px;
+            }
+            .page-banner p {
+                color: #cbd5e1;
+                font-size: 16px;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
+            /* SECTION ANTICIPATION / ALERT MRE */
+            .alert-section {
+                background-color: #ffffff;
+                padding: 60px 0;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            .alert-box {
+                background-color: #fff5f5;
+                border: 1px dashed #a62639;
+                border-radius: 8px;
+                padding: 30px;
+                display: flex;
+                align-items: center;
+                gap: 30px;
+            }
+            .alert-icon {
+                font-size: 40px;
+            }
+            .alert-text h3 {
+                color: #a62639;
+                font-size: 20px;
+                margin-bottom: 5px;
+            }
+            .alert-text p {
+                font-size: 14.5px;
+                color: #475569;
+            }
+
+            /* SECTION PROCESSUS EN ÉTAPES */
+            .process-section {
+                padding: 60px 0;
+            }
+            .section-title {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+            .section-title h2 {
+                color: #1a365d;
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+            .section-title p {
+                color: #64748b;
+                font-size: 15px;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+            .steps-timeline {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 25px;
+                position: relative;
+            }
+            .step-card {
+                background-color: #ffffff;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+                border-left: 4px solid #1a365d;
+                position: relative;
+            }
+            .step-card:nth-child(even) {
+                border-left-color: #a62639;
+            }
+            .step-number {
+                font-size: 12px;
+                font-weight: 800;
+                color: #a62639;
+                text-transform: uppercase;
+                margin-bottom: 8px;
+                display: block;
+            }
+            .step-card h3 {
+                color: #1a365d;
+                font-size: 18px;
+                margin-bottom: 12px;
+            }
+            .step-card p {
+                font-size: 13.5px;
+                color: #64748b;
+                line-height: 1.5;
+            }
+
+            /* SPLIT FORMULAIRE ADMISSIONS */
+            .form-section {
+                background-color: #ffffff;
+                padding: 60px 0;
+            }
+            .form-wrapper {
+                display: grid;
+                grid-template-columns: 0.9fr 1.1fr;
+                gap: 50px;
+                align-items: start;
+            }
+            .form-info h2 {
+                color: #1a365d;
+                font-size: 26px;
+                margin-bottom: 15px;
+            }
+            .form-info p {
+                font-size: 15px;
+                color: #475569;
+                margin-bottom: 25px;
+            }
+            .contact-details-box {
+                background-color: #f8fafc;
+                padding: 25px;
+                border-radius: 8px;
+            }
+            .detail-item {
+                margin-bottom: 15px;
+                font-size: 14px;
+            }
+            .detail-item strong {
+                color: #1a365d;
+            }
+            .admission-form-box {
+                background-color: #ffffff;
+                border: 1px solid #e2e8f0;
+                padding: 35px;
+                border-radius: 8px;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            }
+            .form-group-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                margin-bottom: 5px;
+            }
+            .form-group {
+                margin-bottom: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+            .form-group label {
+                font-size: 14px;
+                font-weight: 600;
+                color: #334155;
+            }
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 12px;
+                border: 1px solid #cbd5e1;
+                border-radius: 4px;
+                font-size: 14px;
+                outline: none;
+                background-color: #f8fafc;
+            }
+            .form-group input:focus,
+            .form-group select:focus,
+            .form-group textarea:focus {
+                border-color: #a62639;
+                background-color: #ffffff;
+            }
+            .btn-submit-form {
+                background-color: #a62639;
+                color: #ffffff;
+                border: none;
+                padding: 14px 28px;
+                border-radius: 4px;
+                font-weight: 700;
+                font-size: 14px;
+                cursor: pointer;
+                text-transform: uppercase;
+                width: 100%;
+            }
+            .btn-submit-form:hover {
+                background-color: #8b1e3f;
+            }
+
+            /* FOOTER */
+            footer {
+                background-color: #0f172a;
+                color: #94a3b8;
+                padding: 60px 0 30px 0;
+                font-size: 14px;
+            }
+            .footer-grid {
+                display: grid;
+                grid-template-columns: 1.5fr 1fr 1fr;
+                gap: 40px;
+                border-bottom: 1px solid #1e293b;
+                padding-bottom: 30px;
+                margin-bottom: 25px;
+            }
+            .footer-logo h4 {
+                color: #ffffff;
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+            .footer-logo p {
+                line-height: 1.6;
+                color: #64748b;
+            }
+            .footer-links h4 {
+                color: #ffffff;
+                font-size: 15px;
+                margin-bottom: 15px;
+            }
+            .footer-links ul {
+                list-style: none;
+            }
+            .footer-links ul li {
+                margin-bottom: 10px;
+            }
+            .footer-links ul li a {
+                color: #94a3b8;
+            }
+            .footer-links ul li a:hover {
+                color: #ffffff;
+            }
+            .footer-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 12px;
+                color: #475569;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            .footer-bottom-links {
+                display: flex;
+                gap: 20px;
+            }
+            .footer-bottom-links a {
+                color: #475569;
+            }
+
+            /* ADAPTATION BREAKPOINTS RESPONSIVES */
+            @media (max-width: 992px) {
+                .steps-timeline,
+                .form-wrapper {
+                    grid-template-columns: 1fr;
+                    gap: 35px;
+                }
+                .alert-box {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 15px;
+                }
+            }
+            @media (max-width: 768px) {
+                .burger-menu {
+                    display: flex;
+                }
+                nav {
+                    display: none;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 100%;
+                    left: -20px;
+                    right: -20px;
+                    background-color: #ffffff;
+                    padding: 20px;
+                    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                    border-top: 1px solid #f1f5f9;
+                    gap: 15px;
+                    align-items: stretch;
+                    text-align: center;
+                }
+                nav.open {
+                    display: flex;
+                }
+
+                .btn-mobile-only {
+                    display: block;
+                    background-color: #a62639;
+                    color: white !important;
+                    padding: 12px;
+                    border-radius: 6px;
+                    font-weight: 700;
+                    margin-top: 10px;
+                }
+
+                .header-actions {
+                    display: none;
+                }
+                .form-group-row {
+                    grid-template-columns: 1fr;
+                }
+                .admission-form-box {
+                    padding: 25px;
+                }
+                .page-banner h1 {
+                    font-size: 26px;
+                }
+                .footer-grid {
+                    grid-template-columns: 1fr;
+                    gap: 30px;
+                }
+                .footer-bottom {
+                    flex-direction: column;
+                    text-align: center;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="container header-wrapper">
+                <div class="logo">
+                    MEG
+                    <span>Madariss Oum El Ghait</span>
+                </div>
+
+                <button class="burger-menu" id="burgerToggle" aria-label="Menu">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </button>
+
+                <nav id="navMenu">
+                    <a href="index.html">Accueil</a>
+                    <a href="about_us.html">Qui sommes-nous ?</a>
+                    <a href="our_cursus.html">Nos Cursus</a>
+                    <a href="students_life.html">Vie Scolaire</a>
+                    <a href="subsription.html" class="active">Admissions</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="subsription.html" class="btn-mobile-only"
+                        >Inscriptions & RDV</a
+                    >
+                </nav>
+
+                <div class="header-actions">
+                    <a href="subsription.html" class="btn-header"
+                        >Inscriptions & RDV</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="page-banner">
+                <div class="container">
+                    <h1>Admissions & Procédure d'Inscription</h1>
+                    <p>
+                        Rejoignez un environnement d'apprentissage trilingue et
+                        d'excellence. Découvrez les modalités d'évaluation et de
+                        dépôt de dossier.
+                    </p>
+                </div>
+            </section>
+
+            <section class="alert-section">
+                <div class="container">
+                    <div class="alert-box">
+                        <div class="alert-icon">🗓️</div>
+                        <div class="alert-text">
+                            <h3>
+                                Recommandation importante pour les familles MRE
+                                & Expatriées
+                            </h3>
+                            <p>
+                                Afin de garantir une intégration sereine,
+                                l'aménagement d'éventuels cours de mise à niveau
+                                linguistique et la réservation de votre place
+                                (les effectifs par classe étant strictement
+                                limités), nous vous conseillons d'anticiper vos
+                                démarches
+                                <strong>entre 3 et 12 mois à l'avance</strong>
+                                par rapport à votre date d'installation au
+                                Maroc.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="process-section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Votre parcours d'admission en 4 étapes</h2>
+                        <p>
+                            Une procédure claire et individualisée pour
+                            s'assurer de l'adéquation de notre projet
+                            pédagogique avec le profil scolaire de votre enfant.
+                        </p>
+                    </div>
+                    <div class="steps-timeline">
+                        <div class="step-card">
+                            <span class="step-number">Étape 01</span>
+                            <h3>Prise de Contact</h3>
+                            <p>
+                                Remplissez le formulaire de pré-inscription en
+                                ligne ou contactez notre bureau des admissions
+                                via notre ligne WhatsApp dédiée pour planifier
+                                un premier échange.
+                            </p>
+                        </div>
+                        <div class="step-card">
+                            <span class="step-number">Étape 02</span>
+                            <h3>Entretien & Test</h3>
+                            <p>
+                                Votre enfant réalise une évaluation diagnostic
+                                bienveillante. Ce test permet d'analyser ses
+                                compétences et d'identifier d'éventuels besoins
+                                d'accompagnement linguistique.
+                            </p>
+                        </div>
+                        <div class="step-card">
+                            <span class="step-number">Étape 03</span>
+                            <h3>Étude du Dossier</h3>
+                            <p>
+                                La direction pédagogique étudie les résultats de
+                                l'évaluation ainsi que les bulletins scolaires
+                                des années précédentes fournis par la famille.
+                            </p>
+                        </div>
+                        <div class="step-card">
+                            <span class="step-number">Étape 04</span>
+                            <h3>Inscription Finale</h3>
+                            <p>
+                                Dès validation de l'admission par
+                                l'établissement, vous finalisez l'inscription
+                                administrative en transmettant les pièces
+                                requises et en réglant les formalités.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <div class="container form-wrapper">
+                    <div class="form-info">
+                        <h2>Entamez vos démarches aujourd'hui</h2>
+                        <p>
+                            Complétez ce formulaire préliminaire. Un conseiller
+                            pédagogique du bureau des admissions prendra
+                            directement contact avec vous sous un délai de 48
+                            heures ouvrées pour faire le point sur votre projet
+                            de scolarisation.
+                        </p>
+
+                        <div class="contact-details-box">
+                            <div class="detail-item">
+                                📍 <strong>Adresse :</strong> Quartier Skikina,
+                                Témara, Maroc
+                            </div>
+                            <div class="detail-item">
+                                📧
+                                <strong>Email :</strong> contact@meg-school.ma
+                            </div>
+                            <div class="detail-item">
+                                💬
+                                <strong>Ligne Directe WhatsApp :</strong> +212
+                                633-730199
+                            </div>
+                            <div class="detail-item">
+                                🕒 <strong>Horaires d'ouverture :</strong> Lundi
+                                au Vendredi — 8h30 à 16h30
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admission-form-box">
+                        <form
+                            onsubmit="
+                                event.preventDefault();
+                                alert(
+                                    'Votre demande préliminaire a été enregistrée avec succès. Notre secrétariat prendra contact avec vous très rapidement.',
+                                );
+                            "
+                        >
+                            <div class="form-group-row">
+                                <div class="form-group">
+                                    <label for="parent-name"
+                                        >Nom et Prénom du Parent *</label
+                                    >
+                                    <input
+                                        type="text"
+                                        id="parent-name"
+                                        placeholder="Ex: Youssef Mansouri"
+                                        required
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label for="parent-phone"
+                                        >Numéro de Téléphone (WhatsApp) *</label
+                                    >
+                                    <input
+                                        type="tel"
+                                        id="parent-phone"
+                                        placeholder="Ex: +33 6 00 00 00 00 ou +212..."
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="parent-email"
+                                    >Adresse Email *</label
+                                >
+                                <input
+                                    type="email"
+                                    id="parent-email"
+                                    placeholder="Ex: parent@example.com"
+                                    required
+                                />
+                            </div>
+                            <div class="form-group-row">
+                                <div class="form-group">
+                                    <label for="child-level"
+                                        >Niveau scolaire visé *</label
+                                    >
+                                    <select id="child-level" required>
+                                        <option value="">
+                                            Sélectionnez le niveau
+                                        </option>
+                                        <option value="maternelle">
+                                            Cycle Préscolaire / Maternelle
+                                        </option>
+                                        <option value="primaire">
+                                            Cycle Primaire
+                                        </option>
+                                        <option value="college">
+                                            Cycle Collège
+                                        </option>
+                                        <option value="lycee">
+                                            Cycle Lycée
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="origin-system"
+                                        >Système scolaire actuel *</label
+                                    >
+                                    <select id="origin-system" required>
+                                        <option value="">
+                                            Sélectionnez le système
+                                        </option>
+                                        <option value="mre-france">
+                                            Système Français (MRE / Expatrié)
+                                        </option>
+                                        <option value="maroc-prive">
+                                            Système Privé Marocain
+                                        </option>
+                                        <option value="maroc-public">
+                                            Système Public Marocain
+                                        </option>
+                                        <option value="autre">
+                                            Autre système international
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-info"
+                                    >Précisions complémentaires (Projet
+                                    d'installation, retard linguistique
+                                    éventuel...)</label
+                                >
+                                <textarea
+                                    id="message-info"
+                                    rows="4"
+                                    placeholder="Indiquez ici toute information utile pour nous aider à préparer votre appel..."
+                                ></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit-form">
+                                Envoyer ma demande préliminaire
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container footer-grid">
+                <div class="footer-logo">
+                    <h4>MEG – Madariss Oum El Ghait</h4>
+                    <p>
+                        Depuis 2011, nous forgeons des esprits trilingues
+                        libres, brillants et fiers de leurs racines culturelles
+                        au Maroc. L'excellence académique à taille humaine.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Informations</h4>
+                    <ul>
+                        <li>📍 Quartier Skikina, Témara, Maroc</li>
+                        <li>📧 contact@meg-school.ma</li>
+                        <li>📞 +212 633-730199 (Admissions)</li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens Utiles</h4>
+                    <ul>
+                        <li><a href="index.html">Retour à l'Accueil</a></li>
+                        <li><a href="about_us.html">Qui sommes-nous ?</a></li>
+                        <li><a href="our_cursus.html">Nos Cursus</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container footer-bottom">
+                <div>
+                    © 2026 Madariss Oum El Ghait (MEG) – Tous droits réservés.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Mentions Légales</a>
+                    <a href="#">Confidentialité</a>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            const burgerToggle = document.getElementById("burgerToggle");
+            const navMenu = document.getElementById("navMenu");
+
+            burgerToggle.addEventListener("click", () => {
+                navMenu.classList.toggle("open");
+                const bars = burgerToggle.querySelectorAll("div");
+                bars[0].style.transform = navMenu.classList.contains("open")
+                    ? "rotate(45deg) translate(5px, 5px)"
+                    : "none";
+                bars[1].style.opacity = navMenu.classList.contains("open")
+                    ? "0"
+                    : "1";
+                bars[2].style.transform = navMenu.classList.contains("open")
+                    ? "rotate(-45deg) translate(6px, -6px)"
+                    : "none";
+            });
+        </script>
+    </body>
+</html>

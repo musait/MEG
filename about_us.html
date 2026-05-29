@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Qui Sommes-Nous ? | Madariss Oum El Ghait (MEG)</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            }
+            body {
+                background-color: #f8fafc;
+                color: #334155;
+                line-height: 1.6;
+            }
+            a {
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            /* HEADER & NAV RESPONSIVE */
+            header {
+                background-color: #ffffff;
+                border-bottom: 2px solid #f1f5f9;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+            .header-wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 0;
+                position: relative;
+            }
+            .logo {
+                font-weight: 800;
+                font-size: 22px;
+                color: #1a365d;
+                z-index: 1001;
+            }
+            .logo span {
+                font-size: 13px;
+                color: #64748b;
+                font-weight: 400;
+                display: block;
+                margin-top: -4px;
+            }
+
+            .burger-menu {
+                display: none;
+                flex-direction: column;
+                gap: 5px;
+                cursor: pointer;
+                border: none;
+                background: none;
+                padding: 5px;
+                z-index: 1001;
+            }
+            .burger-menu div {
+                width: 25px;
+                height: 3px;
+                background-color: #1a365d;
+                transition: all 0.3s ease;
+            }
+
+            nav {
+                display: flex;
+                gap: 25px;
+                align-items: center;
+            }
+            nav a {
+                color: #475569;
+                font-weight: 600;
+                font-size: 15px;
+                padding: 5px 0;
+            }
+            nav a:hover,
+            nav a.active {
+                color: #a62639;
+            }
+
+            .btn-mobile-only {
+                display: none;
+            }
+
+            .header-actions {
+                display: flex;
+                align-items: center;
+            }
+            .btn-header {
+                background-color: #a62639;
+                color: #ffffff;
+                padding: 10px 20px;
+                border-radius: 6px;
+                font-weight: 700;
+                font-size: 14px;
+                white-space: nowrap;
+            }
+            .btn-header:hover {
+                background-color: #8b1e3f;
+                transform: translateY(-1px);
+            }
+
+            /* BANNIÈRE DE PAGE / HERO INTERNE */
+            .page-banner {
+                background-color: #1a365d;
+                color: #ffffff;
+                padding: 60px 0;
+                text-align: center;
+            }
+            .page-banner h1 {
+                font-size: 34px;
+                font-weight: 800;
+                margin-bottom: 15px;
+            }
+            .page-banner p {
+                color: #cbd5e1;
+                font-size: 16px;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
+            /* SECTION HISTOIRE & MANIFESTE */
+            .story-section {
+                background-color: #ffffff;
+                padding: 60px 0;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            .story-wrapper {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+                align-items: center;
+            }
+            .story-content h2 {
+                color: #1a365d;
+                font-size: 26px;
+                margin-bottom: 20px;
+                position: relative;
+            }
+            .story-content h2::after {
+                content: "";
+                display: block;
+                width: 50px;
+                height: 3px;
+                background-color: #a62639;
+                margin-top: 10px;
+            }
+            .story-content p {
+                font-size: 15px;
+                color: #475569;
+                margin-bottom: 20px;
+            }
+            .story-quote {
+                background-color: #f8fafc;
+                border-left: 4px solid #a62639;
+                padding: 30px;
+                border-radius: 0 8px 8px 0;
+            }
+            .story-quote p {
+                font-style: italic;
+                color: #1a365d;
+                font-size: 16px;
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+            .story-quote span {
+                font-size: 13px;
+                color: #64748b;
+                font-weight: 600;
+            }
+
+            /* SECTION VALEURS / PILIERS */
+            .pillars-section {
+                padding: 60px 0;
+            }
+            .section-title {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+            .section-title h2 {
+                color: #1a365d;
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+            .section-title p {
+                color: #64748b;
+                font-size: 15px;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            .pillars-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 25px;
+            }
+            .pillar-card {
+                background-color: #ffffff;
+                padding: 25px;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+                transition: transform 0.3s ease;
+            }
+            .pillar-card:hover {
+                transform: translateY(-5px);
+            }
+            .pillar-icon {
+                font-size: 26px;
+                margin-bottom: 12px;
+                display: inline-block;
+            }
+            .pillar-card h3 {
+                color: #1a365d;
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            .pillar-card p {
+                font-size: 13.5px;
+                color: #64748b;
+                line-height: 1.5;
+            }
+
+            /* SECTION ENGAGEMENT BIENVEILLANCE */
+            .commitment-section {
+                background-color: #ffffff;
+                padding: 60px 0;
+            }
+            .commitment-box {
+                background-color: #fff5f5;
+                border: 1px dashed #a62639;
+                padding: 40px;
+                border-radius: 12px;
+                display: grid;
+                grid-template-columns: 1.3fr 0.7fr;
+                gap: 40px;
+                align-items: center;
+            }
+            .commitment-text h2 {
+                color: #a62639;
+                font-size: 26px;
+                margin-bottom: 15px;
+            }
+            .commitment-text p {
+                font-size: 15px;
+                color: #475569;
+                margin-bottom: 15px;
+            }
+            .commitment-list {
+                list-style: none;
+            }
+            .commitment-list li {
+                font-size: 14px;
+                color: #1a365d;
+                font-weight: 600;
+                margin-bottom: 12px;
+                padding-left: 25px;
+                position: relative;
+            }
+            .commitment-list li::before {
+                content: "✓";
+                color: #a62639;
+                position: absolute;
+                left: 0;
+                font-weight: bold;
+            }
+
+            /* SECTION APPEL A L'ACTION */
+            .cta-bottom {
+                background-color: #a62639;
+                color: #ffffff;
+                padding: 50px 0;
+                text-align: center;
+            }
+            .cta-bottom h2 {
+                font-size: 26px;
+                margin-bottom: 12px;
+            }
+            .cta-bottom p {
+                color: #f8f4f4;
+                margin-bottom: 25px;
+                font-size: 15px;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .btn-cta-white {
+                background-color: #ffffff;
+                color: #a62639;
+                padding: 12px 26px;
+                border-radius: 6px;
+                font-weight: 700;
+                display: inline-block;
+            }
+            .btn-cta-white:hover {
+                background-color: #f1f5f9;
+                transform: translateY(-1px);
+            }
+
+            /* FOOTER */
+            footer {
+                background-color: #0f172a;
+                color: #94a3b8;
+                padding: 60px 0 30px 0;
+                font-size: 14px;
+            }
+            .footer-grid {
+                display: grid;
+                grid-template-columns: 1.5fr 1fr 1fr;
+                gap: 40px;
+                border-bottom: 1px solid #1e293b;
+                padding-bottom: 30px;
+                margin-bottom: 25px;
+            }
+            .footer-logo h4,
+            .footer-links h4 {
+                color: #ffffff;
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+            .footer-logo p {
+                line-height: 1.6;
+                color: #64748b;
+            }
+            .footer-links ul {
+                list-style: none;
+            }
+            .footer-links ul li {
+                margin-bottom: 10px;
+            }
+            .footer-links ul li a {
+                color: #94a3b8;
+            }
+            .footer-links ul li a:hover {
+                color: #ffffff;
+            }
+            .footer-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 12px;
+                color: #475569;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            .footer-bottom-links {
+                display: flex;
+                gap: 20px;
+            }
+            .footer-bottom-links a {
+                color: #475569;
+            }
+
+            /* ADAPTATION RESPONSIVE */
+            @media (max-width: 992px) {
+                .story-wrapper,
+                .commitment-box {
+                    grid-template-columns: 1fr;
+                    gap: 35px;
+                }
+                .pillars-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 768px) {
+                .burger-menu {
+                    display: flex;
+                }
+                nav {
+                    display: none;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 100%;
+                    left: -20px;
+                    right: -20px;
+                    background-color: #ffffff;
+                    padding: 20px;
+                    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                    border-top: 1px solid #f1f5f9;
+                    gap: 15px;
+                    align-items: stretch;
+                    text-align: center;
+                }
+                nav.open {
+                    display: flex;
+                }
+
+                .btn-mobile-only {
+                    display: block;
+                    background-color: #a62639;
+                    color: white !important;
+                    padding: 12px;
+                    border-radius: 6px;
+                    font-weight: 700;
+                    margin-top: 10px;
+                }
+
+                .header-actions {
+                    display: none;
+                }
+
+                .pillars-grid {
+                    grid-template-columns: 1fr;
+                }
+                .page-banner h1 {
+                    font-size: 26px;
+                }
+                .footer-grid {
+                    grid-template-columns: 1fr;
+                    gap: 30px;
+                }
+                .footer-bottom {
+                    flex-direction: column;
+                    text-align: center;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="container header-wrapper">
+                <div class="logo">
+                    MEG
+                    <span>Madariss Oum El Ghait</span>
+                </div>
+
+                <button class="burger-menu" id="burgerToggle" aria-label="Menu">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </button>
+
+                <nav id="navMenu">
+                    <a href="index.html">Accueil</a>
+                    <a href="about_us.html" class="active">Qui sommes-nous ?</a>
+                    <a href="our_cursus.html">Nos Cursus</a>
+                    <a href="students_life.html">Vie Scolaire</a>
+                    <a href="subsription.html">Admissions</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="subsription.html" class="btn-mobile-only"
+                        >Inscriptions & RDV</a
+                    >
+                </nav>
+
+                <div class="header-actions">
+                    <a href="subsription.html" class="btn-header"
+                        >Inscriptions & RDV</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="page-banner">
+                <div class="container">
+                    <h1>Notre Histoire & Notre Vision</h1>
+                    <p>
+                        Découvrez les fondements et l'esprit d'un groupe
+                        scolaire engagé pour l'avenir de ses élèves depuis 2011
+                        à Témara.
+                    </p>
+                </div>
+            </section>
+
+            <section class="story-section">
+                <div class="container story-wrapper">
+                    <div class="story-content">
+                        <h2>Un ancrage historique, un nouveau souffle</h2>
+                        <p>
+                            Fondé en 2011 au cœur du quartier Skikina à Témara,
+                            le Groupe Scolaire Madariss Oum El Ghait (MEG) s’est
+                            construit autour d'une ambition forte : offrir une
+                            éducation de très haut niveau, alliant l'exigence
+                            des cursus internationaux à la fierté culturelle et
+                            linguistique marocaine.
+                        </p>
+                        <p>
+                            Récemment, l’école est entrée dans une phase de
+                            dynamisation majeure, souvent qualifiée de "nouveau
+                            souffle". Cette modernisation se traduit par le
+                            déploiement d’une offre pédagogique hybride unique,
+                            de nouvelles infrastructures adaptées et un
+                            positionnement précurseur axé sur l'inclusion
+                            globale.
+                        </p>
+                        <p>
+                            Nous comprenons intimement les défis auxquels font
+                            face les parents MRE et expatriés lors de leur
+                            retour au Maroc. C'est pourquoi nous avons adapté
+                            toute notre structure pour devenir une passerelle
+                            humaine et rassurante vers l'excellence
+                            biculturelle.
+                        </p>
+                    </div>
+                    <div class="story-quote">
+                        <p>
+                            « Notre rôle n'est pas seulement de préparer les
+                            élèves à réussir des examens, mais de valoriser
+                            l'identité de chaque enfant, d'identifier ses forces
+                            uniques et de lui donner les outils d'une ambition
+                            mondiale, sans jamais couper ses racines. »
+                        </p>
+                        <span>— La Direction Pédagogique MEG School</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="pillars-section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Les 4 piliers de notre modèle éducatif</h2>
+                        <p>
+                            Chaque décision, chaque recrutement et chaque
+                            programme au sein de MEG s’appuient sur des
+                            engagements cardinaux partagés par notre communauté.
+                        </p>
+                    </div>
+                    <div class="pillars-grid">
+                        <div class="pillar-card">
+                            <span class="pillar-icon">🎯</span>
+                            <h3>L'Exigence Académique</h3>
+                            <p>
+                                Un double cursus complet (Français / Marocain)
+                                de la Maternelle au Lycée, encadré par des
+                                enseignants passionnés pour ouvrir toutes les
+                                portes des études supérieures.
+                            </p>
+                        </div>
+                        <div class="pillar-card">
+                            <span class="pillar-icon">🌱</span>
+                            <h3>La Bienveillance Active</h3>
+                            <p>
+                                Une écoute permanente au sein de classes à
+                                effectifs réduits. Nous considétons la confiance
+                                en soi et l'épanouissement psychologique comme
+                                les premiers moteurs de la note globale.
+                            </p>
+                        </div>
+                        <div class="pillar-card">
+                            <span class="pillar-icon">🗣️</span>
+                            <h3>Le Trilinguisme Naturel</h3>
+                            <p>
+                                Maîtrise courante de l'Arabe (standard et
+                                darija), du Français et de l'Anglais dès le
+                                cycle préscolaire grâce à des méthodes
+                                d'immersion active et de projets.
+                            </p>
+                        </div>
+                        <div class="pillar-card">
+                            <span class="pillar-icon">🔄</span>
+                            <h3>L'Adaptabilité MRE</h3>
+                            <p>
+                                Un protocole d'accueil spécifique conçu pour
+                                l'intégration douce des enfants issus de
+                                l'expatriation, incluant un suivi renforcé de
+                                mise à niveau linguistique.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="commitment-section">
+                <div class="container">
+                    <div class="commitment-box">
+                        <div class="commitment-text">
+                            <h2>Une charte de vie scolaire sans concession</h2>
+                            <p>
+                                Parce que la sérénité du cadre est indissociable
+                                de la qualité des apprentissages, l'école
+                                applique des règles éthiques claires basées sur
+                                le respect mutuel.
+                            </p>
+                            <p>
+                                Notre communauté garantit un environnement de
+                                tolérance absolue, la liberté vestimentaire dans
+                                le respect des valeurs de chacun, et un
+                                accompagnement spirituel serein avec un espace
+                                dédié accessible sur place pour la prière.
+                            </p>
+                        </div>
+                        <div>
+                            <ul class="commitment-list">
+                                <li>Lutte active contre le harcèlement</li>
+                                <li>Dialogue permanent avec les parents</li>
+                                <li>Suivi d'orientation individualisé</li>
+                                <li>Valorisation constante des efforts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta-bottom">
+                <div class="container">
+                    <h2>Envie de découvrir notre campus ?</h2>
+                    <p>
+                        Rencontrez notre équipe pédagogique, visitez nos
+                        infrastructures à Skikina et étudions ensemble le profil
+                        scolaire de votre enfant.
+                    </p>
+                    <a href="subsription.html" class="btn-cta-white"
+                        >Prendre rendez-vous avec les admissions</a
+                    >
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container footer-grid">
+                <div class="footer-logo">
+                    <h4>MEG – Madariss Oum El Ghait</h4>
+                    <p>
+                        Depuis 2011, nous forgeons des esprits trilingues
+                        libres, brillants et fiers de leurs racines culturelles
+                        au Maroc. L'excellence académique à taille humaine.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Informations</h4>
+                    <ul>
+                        <li>📍 Quartier Skikina, Témara, Maroc</li>
+                        <li>📧 contact@meg-school.ma</li>
+                        <li>📞 +212 633-730199 (Admissions)</li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens Utiles</h4>
+                    <ul>
+                        <li><a href="index.html">Retour à l'Accueil</a></li>
+                        <li><a href="about_us.html">Qui sommes-nous ?</a></li>
+                        <li><a href="our_cursus.html">Nos Cursus</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container footer-bottom">
+                <div>
+                    © 2026 Madariss Oum El Ghait (MEG) – Tous droits réservés.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Mentions Légales</a>
+                    <a href="#">Confidentialité</a>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            const burgerToggle = document.getElementById("burgerToggle");
+            const navMenu = document.getElementById("navMenu");
+
+            burgerToggle.addEventListener("click", () => {
+                navMenu.classList.toggle("open");
+                const bars = burgerToggle.querySelectorAll("div");
+                bars[0].style.transform = navMenu.classList.contains("open")
+                    ? "rotate(45deg) translate(5px, 5px)"
+                    : "none";
+                bars[1].style.opacity = navMenu.classList.contains("open")
+                    ? "0"
+                    : "1";
+                bars[2].style.transform = navMenu.classList.contains("open")
+                    ? "rotate(-45deg) translate(6px, -6px)"
+                    : "none";
+            });
+        </script>
+    </body>
+</html>

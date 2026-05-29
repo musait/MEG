@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vie Scolaire & Services | Madariss Oum El Ghait (MEG)</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            }
+            body {
+                background-color: #f8fafc;
+                color: #334155;
+                line-height: 1.6;
+            }
+            a {
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            /* HEADER & NAV RESPONSIVE */
+            header {
+                background-color: #ffffff;
+                border-bottom: 2px solid #f1f5f9;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+            .header-wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 0;
+                position: relative;
+            }
+            .logo {
+                font-weight: 800;
+                font-size: 22px;
+                color: #1a365d;
+                z-index: 1001;
+            }
+            .logo span {
+                font-size: 13px;
+                color: #64748b;
+                font-weight: 400;
+                display: block;
+                margin-top: -4px;
+            }
+
+            .burger-menu {
+                display: none;
+                flex-direction: column;
+                gap: 5px;
+                cursor: pointer;
+                border: none;
+                background: none;
+                padding: 5px;
+                z-index: 1001;
+            }
+            .burger-menu div {
+                width: 25px;
+                height: 3px;
+                background-color: #1a365d;
+                transition: all 0.3s ease;
+            }
+
+            nav {
+                display: flex;
+                gap: 25px;
+                align-items: center;
+            }
+            nav a {
+                color: #475569;
+                font-weight: 600;
+                font-size: 15px;
+                padding: 5px 0;
+            }
+            nav a:hover,
+            nav a.active {
+                color: #a62639;
+            }
+
+            .btn-mobile-only {
+                display: none;
+            }
+
+            .header-actions {
+                display: flex;
+                align-items: center;
+            }
+            .btn-header {
+                background-color: #a62639;
+                color: #ffffff;
+                padding: 10px 20px;
+                border-radius: 6px;
+                font-weight: 700;
+                font-size: 14px;
+                white-space: nowrap;
+            }
+            .btn-header:hover {
+                background-color: #8b1e3f;
+                transform: translateY(-1px);
+            }
+
+            /* PAGE BANNER */
+            .page-banner {
+                background-color: #1a365d;
+                color: #ffffff;
+                padding: 60px 0;
+                text-align: center;
+            }
+            .page-banner h1 {
+                font-size: 34px;
+                font-weight: 800;
+                margin-bottom: 15px;
+            }
+            .page-banner p {
+                color: #cbd5e1;
+                font-size: 16px;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
+            /* SECTION LOGISTIQUE & SERVICES */
+            .services-intro {
+                background-color: #ffffff;
+                padding: 60px 0;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            .section-title {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+            .section-title h2 {
+                color: #1a365d;
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+            .section-title p {
+                color: #64748b;
+                font-size: 15px;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+            .services-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
+            }
+            .service-card {
+                background-color: #f8fafc;
+                padding: 35px 25px;
+                border-radius: 8px;
+                border-bottom: 4px solid #e2e8f0;
+                transition: all 0.3s ease;
+            }
+            .service-card:hover {
+                background-color: #ffffff;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+                border-bottom-color: #1a365d;
+                transform: translateY(-2px);
+            }
+            .service-icon {
+                font-size: 30px;
+                margin-bottom: 15px;
+                display: inline-block;
+            }
+            .service-card h3 {
+                color: #1a365d;
+                font-size: 18px;
+                margin-bottom: 12px;
+            }
+            .service-card p {
+                font-size: 14px;
+                color: #64748b;
+            }
+
+            /* SECTION FOCUS VENDREDI APRES-MIDI */
+            .friday-focus-section {
+                padding: 60px 0;
+            }
+            .friday-split {
+                display: grid;
+                grid-template-columns: 1.2fr 0.8fr;
+                gap: 50px;
+                align-items: center;
+            }
+            .friday-content h2 {
+                color: #1a365d;
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+            .friday-content p {
+                font-size: 15px;
+                color: #475569;
+                margin-bottom: 15px;
+            }
+            .vote-stat-box {
+                background-color: #fff5f5;
+                border: 2px dashed #a62639;
+                padding: 35px;
+                border-radius: 12px;
+                text-align: center;
+            }
+            .vote-number {
+                font-size: 58px;
+                font-weight: 900;
+                color: #a62639;
+                line-height: 1;
+                margin-bottom: 10px;
+            }
+            .vote-label {
+                font-size: 15px;
+                font-weight: 700;
+                color: #1a365d;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 12px;
+            }
+            .vote-desc {
+                font-size: 13.5px;
+                color: #64748b;
+                line-height: 1.5;
+            }
+
+            /* SECTION ECOUTE & CADRE BIENVEILLANT */
+            .climate-section {
+                background-color: #ffffff;
+                padding: 60px 0;
+            }
+            .climate-wrapper {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+                align-items: center;
+            }
+            .climate-img-placeholder {
+                background-color: #f1f5f9;
+                border: 2px dashed #cbd5e1;
+                border-radius: 8px;
+                height: 320px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #94a3b8;
+                font-weight: 500;
+                text-align: center;
+                padding: 20px;
+            }
+            .climate-content h2 {
+                color: #1a365d;
+                font-size: 26px;
+                margin-bottom: 15px;
+            }
+            .climate-content p {
+                font-size: 15px;
+                color: #475569;
+                margin-bottom: 20px;
+            }
+            .badge-list {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .badge-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .badge-check {
+                background-color: #fff5f5;
+                color: #a62639;
+                font-weight: bold;
+                padding: 2px 8px;
+                border-radius: 4px;
+                font-size: 13px;
+            }
+            .badge-text h4 {
+                color: #1a365d;
+                font-size: 16px;
+                margin-bottom: 2px;
+            }
+            .badge-text p {
+                font-size: 13px;
+                color: #64748b;
+                margin: 0;
+            }
+
+            /* FOOTER */
+            footer {
+                background-color: #0f172a;
+                color: #94a3b8;
+                padding: 60px 0 30px 0;
+                font-size: 14px;
+            }
+            .footer-grid {
+                display: grid;
+                grid-template-columns: 1.5fr 1fr 1fr;
+                gap: 40px;
+                border-bottom: 1px solid #1e293b;
+                padding-bottom: 30px;
+                margin-bottom: 25px;
+            }
+            .footer-logo h4 {
+                color: #ffffff;
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+            .footer-logo p {
+                line-height: 1.6;
+                color: #64748b;
+            }
+            .footer-links h4 {
+                color: #ffffff;
+                font-size: 15px;
+                margin-bottom: 15px;
+            }
+            .footer-links ul {
+                list-style: none;
+            }
+            .footer-links ul li {
+                margin-bottom: 10px;
+            }
+            .footer-links ul li a {
+                color: #94a3b8;
+            }
+            .footer-links ul li a:hover {
+                color: #ffffff;
+            }
+            .footer-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 12px;
+                color: #475569;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            .footer-bottom-links {
+                display: flex;
+                gap: 20px;
+            }
+            .footer-bottom-links a {
+                color: #475569;
+            }
+
+            /* BREAKPOINTS RESPONSIVES */
+            @media (max-width: 992px) {
+                .services-grid,
+                .friday-split,
+                .climate-wrapper {
+                    grid-template-columns: 1fr;
+                    gap: 35px;
+                }
+                .climate-img-placeholder {
+                    height: 200px;
+                }
+            }
+            @media (max-width: 768px) {
+                .burger-menu {
+                    display: flex;
+                }
+                nav {
+                    display: none;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 100%;
+                    left: -20px;
+                    right: -20px;
+                    background-color: #ffffff;
+                    padding: 20px;
+                    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                    border-top: 1px solid #f1f5f9;
+                    gap: 15px;
+                    align-items: stretch;
+                    text-align: center;
+                }
+                nav.open {
+                    display: flex;
+                }
+
+                .btn-mobile-only {
+                    display: block;
+                    background-color: #a62639;
+                    color: white !important;
+                    padding: 12px;
+                    border-radius: 6px;
+                    font-weight: 700;
+                    margin-top: 10px;
+                }
+
+                .header-actions {
+                    display: none;
+                }
+                .page-banner h1 {
+                    font-size: 26px;
+                }
+                .footer-grid {
+                    grid-template-columns: 1fr;
+                    gap: 30px;
+                }
+                .footer-bottom {
+                    flex-direction: column;
+                    text-align: center;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="container header-wrapper">
+                <div class="logo">
+                    MEG
+                    <span>Madariss Oum El Ghait</span>
+                </div>
+
+                <button class="burger-menu" id="burgerToggle" aria-label="Menu">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </button>
+
+                <nav id="navMenu">
+                    <a href="index.html">Accueil</a>
+                    <a href="about_us.html">Qui sommes-nous ?</a>
+                    <a href="our_cursus.html">Nos Cursus</a>
+                    <a href="students_life.html" class="active">Vie Scolaire</a>
+                    <a href="subsription.html">Admissions</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="subsription.html" class="btn-mobile-only"
+                        >Inscriptions & RDV</a
+                    >
+                </nav>
+
+                <div class="header-actions">
+                    <a href="subsription.html" class="btn-header"
+                        >Inscriptions & RDV</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="page-banner">
+                <div class="container">
+                    <h1>Vie Scolaire & Infrastructures</h1>
+                    <p>
+                        Un environnement serein, sécurisé et parfaitement
+                        structuré à Témara pour accompagner l'épanouissement
+                        quotidien de vos enfants.
+                    </p>
+                </div>
+            </section>
+
+            <section class="services-intro">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Une logistique complète au service des familles</h2>
+                        <p>
+                            Pour que l'apprentissage se déroule dans les
+                            meilleures conditions, MEG prend en charge
+                            l'ensemble des besoins matériels et logistiques de
+                            la journée.
+                        </p>
+                    </div>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <span class="service-icon">🚌</span>
+                            <h3>Transport Securisé</h3>
+                            <p>
+                                Notre réseau de ramassage scolaire dessert
+                                rigoureusement Témara, Skikina et leurs
+                                environs. Des circuits optimisés et un
+                                encadrement strict garantissent des trajets
+                                ponctuels et sereins pour vos enfants.
+                            </p>
+                        </div>
+                        <div class="service-card">
+                            <span class="service-icon">🍽️</span>
+                            <h3>Restauration Saine</h3>
+                            <p>
+                                La cantine de l'école propose chaque jour des
+                                menus complets, équilibrés et variés préparés
+                                sur place. Nous veillons scrupuleusement au
+                                respect des normes d'hygiène et à l'apport
+                                nutritionnel de chaque repas.
+                            </p>
+                        </div>
+                        <div class="service-card">
+                            <span class="service-icon">🕌</span>
+                            <h3>Respect du Cadre de Vie</h3>
+                            <p>
+                                L'identité culturelle et les traditions de
+                                chaque famille sont accueillies avec respect. Un
+                                espace intérieur dédié est soigneusement aménagé
+                                sur place pour permettre la prière quotidienne
+                                en toute tranquillité.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="friday-focus-section">
+                <div class="container friday-split">
+                    <div class="friday-content">
+                        <h2>
+                            Une organisation du temps optimisée pour le rythme
+                            de l'enfant
+                        </h2>
+                        <p>
+                            À Madariss Oum El Ghait, la gestion des rythmes
+                            scolaires repose sur une recherche constante
+                            d'équilibre entre efficacité académique et
+                            récupération psychologique.
+                        </p>
+                        <p>
+                            Notre aménagement horaire permet de condenser de
+                            façon intelligente les cours sur le reste de la
+                            semaine afin de dégager entièrement le vendredi
+                            après-midi. Les élèves terminent leur cycle
+                            hebdomadaire après la pause déjeuner, libérant un
+                            temps précieux pour la respiration familiale,
+                            l'apprentissage personnel ou le repos spirituel,
+                            sans jamais amputer le volume d'heures réglementaire
+                            requis pour les examens.
+                        </p>
+                    </div>
+                    <div class="vote-stat-box">
+                        <div class="vote-number">80%</div>
+                        <div class="vote-label">D'approbation des parents</div>
+                        <div class="vote-desc">
+                            Cette spécificité horaire unique est le résultat
+                            direct d'une grande consultation démocratique
+                            interne au cours de laquelle notre communauté de
+                            parents a validé massivement ce choix de vie
+                            scolaire.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="climate-section">
+                <div class="container climate-wrapper">
+                    <div class="climate-img-placeholder">
+                        [ Zone d'intégration : Photos des ateliers ou de la vie
+                        de l'école ]
+                    </div>
+                    <div class="climate-content">
+                        <h2>Un climat de confiance et de sécurité absolue</h2>
+                        <p>
+                            La vie scolaire à MEG ne s'arrête pas aux
+                            infrastructures. Nous militons activement pour que
+                            notre établissement soit un sanctuaire de protection
+                            et d'épanouissement personnel pour chaque élève.
+                        </p>
+
+                        <div class="badge-list">
+                            <div class="badge-item">
+                                <span class="badge-check">✓</span>
+                                <div class="badge-text">
+                                    <h4>Prévention et écoute active</h4>
+                                    <p>
+                                        Un protocole rigoureux et immédiat est
+                                        déployé pour éliminer toute forme de
+                                        harcèlement ou d'isolement au sein de
+                                        l'école.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="badge-item">
+                                <span class="badge-check">✓</span>
+                                <div class="badge-text">
+                                    <h4>Liberté et respect mutuel</h4>
+                                    <p>
+                                        Nous encourageons la liberté
+                                        d'expression et la liberté
+                                        vestimentaire, encadrées par le respect
+                                        strict des valeurs d'autrui et de la
+                                        tolérance collective.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="badge-item">
+                                <span class="badge-check">✓</span>
+                                <div class="badge-text">
+                                    <h4>Dialogue constant avec les familles</h4>
+                                    <p>
+                                        Un lien permanent unit les conseillers
+                                        de vie scolaire et les parents pour
+                                        suivre l'évolution comportementale et le
+                                        bien-être émotionnel de l'enfant.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container footer-grid">
+                <div class="footer-logo">
+                    <h4>MEG – Madariss Oum El Ghait</h4>
+                    <p>
+                        Depuis 2011, nous forgeons des esprits trilingues
+                        libres, brillants et fiers de leurs racines culturelles
+                        au Maroc. L'excellence académique à taille humaine.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Informations</h4>
+                    <ul>
+                        <li>📍 Quartier Skikina, Témara, Maroc</li>
+                        <li>📧 contact@meg-school.ma</li>
+                        <li>📞 +212 633-730199 (Admissions)</li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens Utiles</h4>
+                    <ul>
+                        <li><a href="index.html">Retour à l'Accueil</a></li>
+                        <li><a href="about_us.html">Qui sommes-nous ?</a></li>
+                        <li><a href="our_cursus.html">Nos Cursus</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container footer-bottom">
+                <div>
+                    © 2026 Madariss Oum El Ghait (MEG) – Tous droits réservés.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Mentions Légales</a>
+                    <a href="#">Confidentialité</a>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            const burgerToggle = document.getElementById("burgerToggle");
+            const navMenu = document.getElementById("navMenu");
+
+            burgerToggle.addEventListener("click", () => {
+                navMenu.classList.toggle("open");
+                const bars = burgerToggle.querySelectorAll("div");
+                bars[0].style.transform = navMenu.classList.contains("open")
+                    ? "rotate(45deg) translate(5px, 5px)"
+                    : "none";
+                bars[1].style.opacity = navMenu.classList.contains("open")
+                    ? "0"
+                    : "1";
+                bars[2].style.transform = navMenu.classList.contains("open")
+                    ? "rotate(-45deg) translate(6px, -6px)"
+                    : "none";
+            });
+        </script>
+    </body>
+</html>

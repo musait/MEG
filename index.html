@@ -1,0 +1,1091 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Madariss Oum El Ghait (MEG) | Groupe Scolaire Témara</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            }
+            body {
+                background-color: #f8fafc;
+                color: #334155;
+                line-height: 1.6;
+            }
+            a {
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            /* HEADER & NAV RESPONSIVE - NETTOYÉ */
+            header {
+                background-color: #ffffff;
+                border-bottom: 2px solid #f1f5f9;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+            .header-wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 0;
+                position: relative;
+            }
+            .logo {
+                font-weight: 800;
+                font-size: 22px;
+                color: #1a365d;
+                z-index: 1001;
+            }
+            .logo span {
+                font-size: 13px;
+                color: #64748b;
+                font-weight: 400;
+                display: block;
+                margin-top: -4px;
+            }
+
+            /* Menu Burger Icon */
+            .burger-menu {
+                display: none;
+                flex-direction: column;
+                gap: 5px;
+                cursor: pointer;
+                border: none;
+                background: none;
+                padding: 5px;
+                z-index: 1001;
+            }
+            .burger-menu div {
+                width: 25px;
+                height: 3px;
+                background-color: #1a365d;
+                transition: all 0.3s ease;
+            }
+
+            nav {
+                display: flex;
+                gap: 25px;
+                align-items: center;
+            }
+            nav a {
+                color: #475569;
+                font-weight: 600;
+                font-size: 15px;
+                padding: 5px 0;
+            }
+            nav a:hover,
+            nav a.active {
+                color: #a62639;
+            }
+
+            /* Masqué par défaut sur PC / Tablette */
+            .btn-mobile-only {
+                display: none;
+            }
+
+            .header-actions {
+                display: flex;
+                align-items: center;
+            }
+            .btn-header {
+                background-color: #a62639;
+                color: #ffffff;
+                padding: 10px 20px;
+                border-radius: 6px;
+                font-weight: 700;
+                font-size: 14px;
+                white-space: nowrap;
+            }
+            .btn-header:hover {
+                background-color: #8b1e3f;
+                transform: translateY(-1px);
+            }
+
+            /* HERO SECTION */
+            .hero {
+                background-color: #ffffff;
+                padding: 60px 0;
+                text-align: center;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            .badge {
+                background-color: #f1f5f9;
+                color: #a62639;
+                padding: 6px 16px;
+                border-radius: 50px;
+                font-size: 12px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                display: inline-block;
+            }
+            .hero h1 {
+                color: #1a365d;
+                font-size: 38px;
+                font-weight: 800;
+                margin: 20px 0;
+                line-height: 1.2;
+            }
+            .hero h1 span {
+                color: #a62639;
+            }
+            .hero p {
+                font-size: 16px;
+                color: #64748b;
+                max-width: 800px;
+                margin: 0 auto 30px auto;
+            }
+            .hero-actions {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .btn-primary,
+            .btn-secondary {
+                padding: 14px 28px;
+                border-radius: 6px;
+                font-weight: 700;
+                font-size: 15px;
+                text-align: center;
+            }
+            .btn-primary {
+                background-color: #a62639;
+                color: #ffffff;
+                box-shadow: 0 4px 6px -1px rgba(166, 38, 57, 0.2);
+            }
+            .btn-primary:hover {
+                background-color: #8b1e3f;
+                transform: translateY(-2px);
+            }
+            .btn-secondary {
+                background-color: #1a365d;
+                color: #ffffff;
+            }
+            .btn-secondary:hover {
+                background-color: #132847;
+                transform: translateY(-2px);
+            }
+
+            /* BANDEAU CHIFFRES */
+            .stats {
+                background-color: #1a365d;
+                color: #ffffff;
+                padding: 40px 0;
+            }
+            .stats-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                text-align: center;
+                gap: 20px;
+            }
+            .stat-item h3 {
+                font-size: 30px;
+                font-weight: 800;
+                margin-bottom: 5px;
+            }
+            .stat-item p {
+                font-size: 12px;
+                color: #cbd5e1;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+            .stat-item:not(:last-child) {
+                border-right: 1px solid #2a4a7f;
+            }
+
+            /* SECTION PHILOSOPHIE */
+            .philosophy {
+                padding: 60px 0;
+            }
+            .section-title {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+            .section-title h2 {
+                color: #1a365d;
+                font-size: 28px;
+                font-weight: 700;
+                margin-bottom: 15px;
+            }
+            .section-title p {
+                color: #64748b;
+                font-size: 15px;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+            .philosophy-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
+            }
+            .card-philo {
+                background-color: #ffffff;
+                padding: 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            }
+            .card-philo.border-red {
+                border-top: 4px solid #a62639;
+            }
+            .card-philo.border-blue {
+                border-top: 4px solid #1a365d;
+            }
+            .card-philo h3 {
+                color: #1a365d;
+                font-size: 18px;
+                margin-bottom: 12px;
+            }
+            .card-philo p {
+                font-size: 14px;
+                color: #475569;
+            }
+
+            /* SECTION TABLE COMPARATIVE MRE */
+            .mre-section {
+                background-color: #ffffff;
+                padding: 60px 0;
+            }
+            .table-responsive {
+                margin-top: 30px;
+                overflow-x: auto;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+                border-radius: 8px;
+                -webkit-overflow-scrolling: touch;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                background-color: #ffffff;
+                text-align: left;
+                min-width: 650px;
+            }
+            th {
+                background-color: #1a365d;
+                color: #ffffff;
+                padding: 15px;
+                font-size: 15px;
+                font-weight: 600;
+            }
+            th.highlight-th {
+                background-color: #a62639;
+            }
+            td {
+                padding: 15px;
+                font-size: 14px;
+                border-bottom: 1px solid #e2e8f0;
+                color: #475569;
+                vertical-align: top;
+            }
+            tr:nth-child(even) td {
+                background-color: #f8fafc;
+            }
+            td.highlight-td {
+                background-color: #fff5f5;
+                color: #1a365d;
+                font-weight: 500;
+            }
+            tr:nth-child(even) td.highlight-td {
+                background-color: #fff0f0;
+            }
+
+            /* CURSUS SECTION */
+            .cursus {
+                padding: 60px 0;
+            }
+            .cursus-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+            .card-cursus {
+                background-color: #ffffff;
+                border-radius: 8px;
+                padding: 22px;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            }
+            .cursus-tag {
+                font-size: 11px;
+                font-weight: 700;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+                display: inline-block;
+            }
+            .card-cursus:nth-child(odd) .cursus-tag {
+                color: #a62639;
+            }
+            .card-cursus:nth-child(even) .cursus-tag {
+                color: #1a365d;
+            }
+            .card-cursus h3 {
+                color: #1a365d;
+                font-size: 18px;
+                margin-bottom: 12px;
+            }
+            .card-cursus p {
+                font-size: 13.5px;
+                color: #475569;
+                margin-bottom: 15px;
+            }
+            .card-cursus ul {
+                list-style-type: none;
+                font-size: 13px;
+                color: #64748b;
+            }
+            .card-cursus ul li {
+                margin-bottom: 6px;
+                padding-left: 15px;
+                position: relative;
+            }
+            .card-cursus ul li::before {
+                content: "•";
+                color: #a62639;
+                position: absolute;
+                left: 0;
+                font-weight: bold;
+            }
+
+            /* SERVICES & VENDREDI */
+            .services-section {
+                background-color: #ffffff;
+                padding: 60px 0;
+            }
+            .services-wrapper {
+                display: grid;
+                grid-template-columns: 1.2fr 0.8fr;
+                gap: 40px;
+                align-items: start;
+            }
+            .service-item {
+                margin-bottom: 20px;
+            }
+            .service-item h4 {
+                color: #1a365d;
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+            .service-item p {
+                font-size: 14px;
+                color: #64748b;
+            }
+            .friday-box {
+                background-color: #fff5f5;
+                border: 1px dashed #a62639;
+                padding: 30px;
+                border-radius: 12px;
+            }
+            .friday-box .box-tag {
+                background-color: #a62639;
+                color: #ffffff;
+                padding: 4px 10px;
+                border-radius: 4px;
+                font-size: 11px;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+            .friday-box h3 {
+                color: #a62639;
+                font-size: 22px;
+                margin: 15px 0 10px 0;
+            }
+            .friday-box p {
+                font-size: 14px;
+                color: #475569;
+                margin-bottom: 15px;
+            }
+
+            /* CTA ZONE */
+            .cta-zone {
+                background-color: #1a365d;
+                color: #ffffff;
+                padding: 60px 0;
+                text-align: center;
+            }
+            .cta-zone h2 {
+                font-size: 30px;
+                font-weight: 700;
+                margin-bottom: 15px;
+            }
+            .cta-zone p {
+                color: #cbd5e1;
+                font-size: 15px;
+                max-width: 800px;
+                margin: 0 auto 30px auto;
+            }
+            .cta-form {
+                background-color: #ffffff;
+                padding: 15px;
+                border-radius: 8px;
+                display: flex;
+                gap: 15px;
+                max-width: 700px;
+                margin: 0 auto;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            }
+            .cta-form input {
+                padding: 12px;
+                border: 1px solid #cbd5e1;
+                border-radius: 4px;
+                flex: 1;
+                font-size: 14px;
+                outline: none;
+            }
+            .cta-form button {
+                background-color: #a62639;
+                color: #ffffff;
+                font-weight: 700;
+                padding: 12px 25px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 14px;
+                text-transform: uppercase;
+            }
+            .cta-form button:hover {
+                background-color: #8b1e3f;
+            }
+            .cta-subtext {
+                font-size: 13px;
+                color: #94a3b8;
+                margin-top: 20px;
+            }
+
+            /* FOOTER */
+            footer {
+                background-color: #0f172a;
+                color: #94a3b8;
+                padding: 60px 0 30px 0;
+                font-size: 14px;
+            }
+            .footer-grid {
+                display: grid;
+                grid-template-columns: 1.5fr 1fr 1fr;
+                gap: 40px;
+                border-bottom: 1px solid #1e293b;
+                padding-bottom: 30px;
+                margin-bottom: 25px;
+            }
+            .footer-logo h4,
+            .footer-links h4 {
+                color: #ffffff;
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+            .footer-logo p {
+                line-height: 1.6;
+                color: #64748b;
+            }
+            .footer-links ul {
+                list-style: none;
+            }
+            .footer-links ul li {
+                margin-bottom: 10px;
+            }
+            .footer-links ul li a {
+                color: #94a3b8;
+            }
+            .footer-links ul li a:hover {
+                color: #ffffff;
+            }
+            .footer-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 12px;
+                color: #475569;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            .footer-bottom-links {
+                display: flex;
+                gap: 20px;
+            }
+            .footer-bottom-links a {
+                color: #475569;
+            }
+
+            /* BREAKPOINTS RESPONSIVE ADAPTATIFS */
+            @media (max-width: 992px) {
+                .stats-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                .stat-item:nth-child(2) {
+                    border-right: none;
+                }
+                .stat-item:nth-child(1),
+                .stat-item:nth-child(2) {
+                    border-bottom: 1px solid #2a4a7f;
+                    padding-bottom: 15px;
+                }
+                .philosophy-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                .cursus-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                .services-wrapper {
+                    grid-template-columns: 1fr;
+                    gap: 35px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .burger-menu {
+                    display: flex;
+                }
+                nav {
+                    display: none;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 100%;
+                    left: -20px;
+                    right: -20px;
+                    background-color: #ffffff;
+                    padding: 20px;
+                    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                    border-top: 1px solid #f1f5f9;
+                    gap: 15px;
+                    align-items: stretch;
+                    text-align: center;
+                }
+                nav.open {
+                    display: flex;
+                }
+
+                /* Affichage propre du bouton mobile dans le panneau déroulant */
+                .btn-mobile-only {
+                    display: block;
+                    background-color: #a62639;
+                    color: white !important;
+                    padding: 12px;
+                    border-radius: 6px;
+                    font-weight: 700;
+                    margin-top: 10px;
+                }
+
+                /* Masquage de l'action droite PC */
+                .header-actions {
+                    display: none;
+                }
+
+                .stats-grid,
+                .philosophy-grid,
+                .cursus-grid {
+                    grid-template-columns: 1fr;
+                }
+                .stat-item {
+                    border-right: none !important;
+                    border-bottom: 1px solid #2a4a7f;
+                    padding: 15px 0;
+                }
+                .stat-item:last-child {
+                    border-bottom: none;
+                }
+                .hero h1 {
+                    font-size: 28px;
+                }
+                .hero p {
+                    font-size: 15px;
+                }
+                .hero-actions .btn-primary,
+                .hero-actions .btn-secondary {
+                    width: 100%;
+                }
+                .cta-form {
+                    flex-direction: column;
+                    background: transparent;
+                    box-shadow: none;
+                    padding: 0;
+                }
+                .cta-form input,
+                .cta-form button {
+                    width: 100%;
+                    border-radius: 6px;
+                }
+                .footer-grid {
+                    grid-template-columns: 1fr;
+                    gap: 30px;
+                }
+                .footer-bottom {
+                    flex-direction: column;
+                    text-align: center;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="container header-wrapper">
+                <div class="logo">
+                    MEG
+                    <span>Madariss Oum El Ghait</span>
+                </div>
+
+                <button class="burger-menu" id="burgerToggle" aria-label="Menu">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </button>
+
+                <nav id="navMenu">
+                    <a href="index.html" class="active">Accueil</a>
+                    <a href="about_us.html">Qui sommes-nous ?</a>
+                    <a href="our_cursus.html">Nos Cursus</a>
+                    <a href="students_life.html">Vie Scolaire</a>
+                    <a href="subsription.html">Admissions</a>
+                    <a href="contact.html">Contact</a>
+
+                    <a href="subsription.html" class="btn-mobile-only"
+                        >Inscriptions & RDV</a
+                    >
+                </nav>
+
+                <div class="header-actions">
+                    <a href="subsription.html" class="btn-header"
+                        >Inscriptions & RDV</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <span class="badge">Groupe Scolaire Privé Hybride</span>
+                    <h1>
+                        L’excellence d’une scolarité trilingue au Maroc,<br /><span
+                            >le pont idéal pour les enfants de MRE.</span
+                        >
+                    </h1>
+                    <p>
+                        Fondé en 2011 à Témara (Skikina), Madariss Oum El Ghait
+                        (MEG) offre un double cursus unique permettant de
+                        valider les diplômes français et marocains. Une approche
+                        sur-mesure et bienveillante pensée pour garantir une
+                        transition sereine et sans concession.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="subsription.html" class="btn-primary"
+                            >Planifier un entretien d'orientation</a
+                        >
+                        <a href="#" class="btn-secondary"
+                            >Télécharger la brochure</a
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <section class="stats">
+                <div class="container stats-grid">
+                    <div class="stat-item">
+                        <h3>Depuis 2011</h3>
+                        <p>15 ans d'expérience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Maternelle au Lycée</h3>
+                        <p>Un parcours sans rupture</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Double Diplôme</h3>
+                        <p>Cursus Français & Marocain</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100% Trilingue</h3>
+                        <p>Arabe, Français, Anglais</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="philosophy">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>
+                            Valoriser chaque enfant grâce à une approche
+                            personnalisée
+                        </h2>
+                        <p>
+                            À MEG, la réussite scolaire s'accompagne d’un cadre
+                            bienveillant et structuré où chaque élève bénéficie
+                            du temps et de l'écoute nécessaires pour s'épanouir.
+                        </p>
+                    </div>
+                    <div class="philosophy-grid">
+                        <div class="card-philo border-red">
+                            <h3>Classes à effectifs réduits</h3>
+                            <p>
+                                L'attention individualisée n'est pas une
+                                promesse, c'est notre mode de fonctionnement.
+                                Nos enseignants ajustent leur pédagogie aux
+                                forces et aux axes d'amélioration de chaque
+                                enfant.
+                            </p>
+                        </div>
+                        <div class="card-philo border-blue">
+                            <h3>Zéro Harcèlement</h3>
+                            <p>
+                                Nous croyons qu'un cerveau inquiet ne peut pas
+                                apprendre correctement. Nous appliquons un
+                                protocole strict d'écoute pour garantir un
+                                climat de paix, de tolérance et de sécurité
+                                absolue.
+                            </p>
+                        </div>
+                        <div class="card-philo border-red">
+                            <h3>Enracinement & Ouverture</h3>
+                            <p>
+                                Préparer l'avenir international de nos élèves ne
+                                se fait jamais au détriment de leur identity.
+                                Nous cultivons fièrement l'amour de la langue
+                                arabe, de l'histoire et des valeurs du Maroc.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mre-section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>
+                            L'alternative unique pour le retour des familles MRE
+                            au Maroc
+                        </h2>
+                        <p>
+                            Le retour au pays soulève de nombreuses questions.
+                            MEG apporte une réponse concrète, performante et
+                            équilibrée face aux limites des solutions
+                            traditionnelles.
+                        </p>
+                    </div>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Critères Clés</th>
+                                    <th>Le CNED seul</th>
+                                    <th>La Mission (AEFE)</th>
+                                    <th class="highlight-th">
+                                        L'approche MEG Hybride
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td
+                                        style="
+                                            font-weight: bold;
+                                            color: #1a365d;
+                                        "
+                                    >
+                                        Structure & Socialisation
+                                    </td>
+                                    <td>
+                                        Isolement important devant un écran,
+                                        gestion parentale lourde au quotidien.
+                                    </td>
+                                    <td>
+                                        Cadre scolaire classique mais places
+                                        très limitées et sélection stricte à
+                                        l'entrée.
+                                    </td>
+                                    <td class="highlight-td">
+                                        Une véritable école physique, des
+                                        enseignants dédiés chaque jour en
+                                        présentiel et une vie de classe
+                                        dynamique.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="
+                                            font-weight: bold;
+                                            color: #1a365d;
+                                        "
+                                    >
+                                        Intégration Culturelle
+                                    </td>
+                                    <td>
+                                        Absence de cours structurés en Arabe, en
+                                        Darija et en valeurs culturelles
+                                        locales.
+                                    </td>
+                                    <td>
+                                        Ancrage local parfois secondaire par
+                                        rapport aux exigences occidentales
+                                        standardisées.
+                                    </td>
+                                    <td class="highlight-td">
+                                        Mise à niveau individualisée en
+                                        Arabe/Darija pour rattraper le retard
+                                        sans pression. Espace de prière sur
+                                        place.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        style="
+                                            font-weight: bold;
+                                            color: #1a365d;
+                                        "
+                                    >
+                                        Diplômes & Débouchés
+                                    </td>
+                                    <td>
+                                        Uniquement français, compliquant l'accès
+                                        au cursus supérieur marocain.
+                                    </td>
+                                    <td>
+                                        Uniquement français, options
+                                        internationales restreintes, budgets
+                                        d'inscription très élevés.
+                                    </td>
+                                    <td class="highlight-td">
+                                        Double diplomation officielle (Français
+                                        et/ou Marocain). Flexibilité totale pour
+                                        les études supérieures futures.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cursus">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>
+                            Un parcours d'excellence de la Maternelle au Lycée
+                        </h2>
+                        <p>
+                            Une cohérence pédagogique totale pour accompagner
+                            l'évolution de votre enfant sans aucune rupture de
+                            cycle.
+                        </p>
+                    </div>
+                    <div class="cursus-grid">
+                        <div class="card-cursus">
+                            <span class="cursus-tag">Cycle 1</span>
+                            <h3>Maternelle Trilingue</h3>
+                            <p>
+                                L’éveil des langues (Arabe, Français, Anglais)
+                                se fait de manière naturelle à travers le jeu,
+                                la socialisation et le développement
+                                psychomoteur.
+                            </p>
+                            <ul>
+                                <li>Immersion précoce</li>
+                                <li>Ateliers de motricité</li>
+                                <li>Effectifs très limités</li>
+                            </ul>
+                        </div>
+                        <div class="card-cursus">
+                            <span class="cursus-tag">Cycles 2 & 3</span>
+                            <h3>Primaire Fondations</h3>
+                            <p>
+                                Maîtrise rigoureuse des fondamentaux.
+                                Articulation méthodique entre les exigences du
+                                programme marocain et la logique d'ouverture
+                                française.
+                            </p>
+                            <ul>
+                                <li>Lecture & Écriture renforcées</li>
+                                <li>Mathématiques actives</li>
+                                <li>Protocole d'accueil MRE</li>
+                            </ul>
+                        </div>
+                        <div class="card-cursus">
+                            <span class="cursus-tag">Cycle 4</span>
+                            <h3>Collège Autonomie</h3>
+                            <p>
+                                Approfondissement scientifique, développement de
+                                l'esprit critique et responsabilisation pour
+                                préparer sereinement le Brevet.
+                            </p>
+                            <ul>
+                                <li>Anglais académique</li>
+                                <li>Méthodologie de travail</li>
+                                <li>Projets technologiques</li>
+                            </ul>
+                        </div>
+                        <div class="card-cursus">
+                            <span class="cursus-tag">Le Sommet</span>
+                            <h3>Lycée & Orientation</h3>
+                            <p>
+                                Préparation stratégique aux examens officiels.
+                                Accompagnement vers l'obtention des diplômes
+                                ouvrant les portes des universités mondiales.
+                            </p>
+                            <ul>
+                                <li>Baccalauréat de haut niveau</li>
+                                <li>Suivi d'orientation post-bac</li>
+                                <li>Culture du leadership</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="services-section">
+                <div class="container services-wrapper">
+                    <div>
+                        <h2>Un quotidien pensé pour le rythme des enfants</h2>
+                        <p>
+                            L'organisation matérielle ne doit jamais être un
+                            frein. MEG intègre toutes les commodités
+                            indispensables au bien-être de votre famille à
+                            Témara.
+                        </p>
+
+                        <div class="service-item">
+                            <h4>🚌 Transport Scolaire Sécurisé</h4>
+                            <p>
+                                Un réseau de ramassage rigoureux, ponctuel et
+                                encadré couvrant Témara, Skikina et leurs
+                                environs.
+                            </p>
+                        </div>
+                        <div class="service-item">
+                            <h4>🍽️ Cantine & Restauration Saine</h4>
+                            <p>
+                                Des repas complets, équilibrés et variés
+                                préparés sur place pour préserver la santé et
+                                l'énergie de nos élèves.
+                            </p>
+                        </div>
+                        <div class="service-item">
+                            <h4>🕌 Respect des Traditions</h4>
+                            <p>
+                                Un espace dédié est aménagé sur place pour
+                                permettre la prière quotidienne en toute
+                                sérénité et dans la tolérance.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="friday-box">
+                        <span class="box-tag">Spécificité MEG</span>
+                        <h3>L'après-midi du vendredi libéré</h3>
+                        <p>
+                            À la suite d’une concertation interne,
+                            <strong
+                                >80% de nos parents d'élèves ont voté en faveur
+                                d’une optimisation horaire unique.</strong
+                            >
+                        </p>
+                        <p>
+                            L’emploi du temps est condensé pour libérer le
+                            vendredi après-midi. Cela permet aux familles de se
+                            retrouver plus tôt, sans impacter le volume d’heures
+                            de cours réglementaire.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta-zone">
+                <div class="container">
+                    <h2>
+                        Anticipez la rentrée de votre enfant dès aujourd'hui
+                    </h2>
+                    <p>
+                        Un changement de pays ou une réorientation de cursus
+                        réussi
+                        <strong
+                            >s'anticipe idéalement entre 3 et 12 mois à
+                            l'avance.</strong
+                        >
+                        Ne tardez pas à réserver votre créneau d'évaluation
+                        pédagogique, les places par classe étant limitées.
+                    </p>
+                    <form class="cta-form" onsubmit="event.preventDefault()">
+                        <input
+                            type="text"
+                            placeholder="Votre Nom Complet"
+                            required
+                        />
+                        <input
+                            type="email"
+                            placeholder="Adresse Email"
+                            required
+                        />
+                        <button type="submit">Être rappelé</button>
+                    </form>
+                    <p class="cta-subtext">
+                        Contact direct secrétariat / WhatsApp au
+                        <strong>+212 633-730199</strong> (Bureaux ouverts du
+                        lundi au vendredi).
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container footer-grid">
+                <div class="footer-logo">
+                    <h4>MEG – Madariss Oum El Ghait</h4>
+                    <p>
+                        Depuis 2011, nous forgeons des esprits trilingues
+                        libres, brillants et fiers de leurs racines culturelles
+                        au Maroc. L'excellence académique à taille humaine.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Informations</h4>
+                    <ul>
+                        <li>📍 Quartier Skikina, Témara, Maroc</li>
+                        <li>📧 contact@meg-school.ma</li>
+                        <li>📞 +212 633-730199 (Admissions)</li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Liens Utiles</h4>
+                    <ul>
+                        <li><a href="index.html">Retour à l'Accueil</a></li>
+                        <li><a href="about_us.html">Qui sommes-nous ?</a></li>
+                        <li><a href="our_cursus.html">Nos Cursus</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container footer-bottom">
+                <div>
+                    © 2026 Madariss Oum El Ghait (MEG) – Tous droits réservés.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Mentions Légales</a>
+                    <a href="#">Confidentialité</a>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            const burgerToggle = document.getElementById("burgerToggle");
+            const navMenu = document.getElementById("navMenu");
+
+            burgerToggle.addEventListener("click", () => {
+                navMenu.classList.toggle("open");
+                // Petit effet de rotation basique sur les barres du burger
+                const bars = burgerToggle.querySelectorAll("div");
+                bars[0].style.transform = navMenu.classList.contains("open")
+                    ? "rotate(45deg) translate(5px, 5px)"
+                    : "none";
+                bars[1].style.opacity = navMenu.classList.contains("open")
+                    ? "0"
+                    : "1";
+                bars[2].style.transform = navMenu.classList.contains("open")
+                    ? "rotate(-45deg) translate(6px, -6px)"
+                    : "none";
+            });
+        </script>
+    </body>
+</html>
